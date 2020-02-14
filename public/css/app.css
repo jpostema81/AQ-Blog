@@ -13930,3 +13930,19 @@ a.text-dark:focus {
     clip: auto;
 }
 
+.avatar {
+    width: 48px;
+    height: auto;
+    border: 2px solid #333;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.avatar.avatar-lg {
+    width: 64px;
+}
+
+.avatar.avatar-xl {
+    width: 128px;
+}
+
