@@ -1,7 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
-@section('content')
-    @include('layouts.sidebar')
-
+@section('dashboard-content')
     <p>Manage Users</p>
 @endsection
