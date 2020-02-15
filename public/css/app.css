@@ -13938,6 +13938,10 @@ a.text-dark:focus {
     padding: 5px;
 }
 
+.avatar.avatar-sm {
+    width: 32px;
+}
+
 .avatar.avatar-lg {
     width: 64px;
 }
