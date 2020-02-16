@@ -61,7 +61,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                @if (Auth::user()->is_admin)
+                                @if (Auth::user()->is_admin && !Request::is(['dashboard', 'dashboard/*']))
                                     <a class="dropdown-item" href="{{ route('dashboard') }}">{{ __('Dashboard') }}</a>
                                 @endif
 

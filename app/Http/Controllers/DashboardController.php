@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\IsAdmin;
+use App\Post;
+use App\User;
 
 class DashboardController extends Controller
 {
@@ -18,7 +20,10 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard.index');
+        return view('dashboard.index', [
+            'user_count' => User::all()->count(),
+            'post_count' => Post::all()->count()
+        ]);
     }
 
     public function settings()
