@@ -11,8 +11,8 @@
 
     <div class="card">
         <div class="card-header bg-dark text-white">
-            <i class="fa fa-user"></i>
-            <b>Users</b>
+            <i class="fa fa-pencil"></i>
+            <b>Posts</b>
         </div>
 
         <div class="card-body table-responsive">

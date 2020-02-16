@@ -34,6 +34,7 @@
 
     <div class="card">
         <div class="card-header bg-dark text-white">
+            <i class="fa fa-star"></i>
             <span>Statistics</span>
         </div>
 
@@ -41,17 +42,20 @@
             <div class="container text-center">
                 <div class="row">
                     <a type="statistic" href="{{ route('dashboard.users') }}">
-                        <span class="badge stat-badge text-primary">{{ $user_count }}</span>
+                        <span class="badge stat-badge text-primary"><i
+                                class="fa fa-user mr-0"></i>{{ $user_count }}</span>
                         <span class="badge-text text-dark">Users</span>
                     </a>
 
                     <a type="statistic" href="{{ route('dashboard.posts') }}">
-                        <span class="badge stat-badge text-primary">{{ $post_count }}</span>
+                        <span class="badge stat-badge text-primary"><i
+                                class="fa fa-pencil mr-0"></i>{{ $post_count }}</span>
                         <span class="badge-text text-dark">Posts</span>
                     </a>
 
                     <a type="statistic" href="{{ route('dashboard.tags') }}">
-                        <span class="badge stat-badge text-primary">{{ $tag_count }}</span>
+                        <span class="badge stat-badge text-primary"><i
+                                class="fa fa-hashtag mr-0"></i>{{ $tag_count }}</span>
                         <span class="badge-text text-dark">Tags</span>
                     </a>
                 </div>

@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use App\Post;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 
-class PostsController extends Controller
+class PostsController extends DashboardController
 {
     public function view()
     {

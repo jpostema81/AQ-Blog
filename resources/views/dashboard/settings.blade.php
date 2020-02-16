@@ -7,6 +7,7 @@
 @section('dashboard-content')
     <div class="card">
         <span class="card-header bg-dark text-white">
+            <i class="fa fa-gear"></i>
             Settings
         </span>
 

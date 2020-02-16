@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TagsController extends Controller
+class TagsController extends DashboardController
 {
     public function view()
     {

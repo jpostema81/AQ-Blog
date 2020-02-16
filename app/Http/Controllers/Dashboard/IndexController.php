@@ -2,23 +2,11 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Controller;
-use App\Http\Middleware\Authenticate;
-use App\Http\Middleware\IsAdmin;
 use App\Post;
 use App\User;
 
-class IndexController extends Controller
+class IndexController extends DashboardController
 {
-    /**
-     * IndexController constructor.
-     */
-    public function __construct()
-    {
-        $this->middleware(Authenticate::class);
-        $this->middleware(IsAdmin::class);
-    }
-
     public function view()
     {
         return view('dashboard.index', [

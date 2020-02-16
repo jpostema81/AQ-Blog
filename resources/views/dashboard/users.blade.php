@@ -28,6 +28,69 @@
 
                 <tbody>
                 @forelse($users as $user)
+                    <div id="modal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title pull-left">Edit User</h4>
+
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="container">
+                                        <form class="form text-center" method="post"
+                                              action="{{ route('dashboard.users.edit', ['user' => $user]) }}">
+                                            @csrf
+
+                                            <div class="form-group">
+                                                <label for="id">ID:</label>
+                                                <input class="form-control" type="number" min="1"
+                                                       value="{{ $user->id }}"
+                                                       disabled id="id" name="id">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="name">Name:</label>
+                                                <input class="form-control" type="text" value="{{ $user->name }}"
+                                                       id="name" name="name">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="email">Email:</label>
+                                                <input class="form-control" type="email" value="{{ $user->email }}"
+                                                       id="email" name="email">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password">Password:</label>
+                                                <input class="form-control" type="password"
+                                                       placeholder="{{ str_repeat('*', rand(3, 32))  }}" id="password"
+                                                       name="password">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="is_admin">Is Admin:</label>
+                                                <select class="form-control" id="is_admin" name="is_admin">
+                                                    <option value="1" {{ $user->is_admin ? 'selected' : '' }}>Yes
+                                                    </option>
+                                                    <option value="0" {{ !$user->is_admin ? 'selected' : '' }}>No
+                                                    </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group text-center">
+                                                <button type="submit" class="btn btn-primary w-100">Save</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
@@ -35,19 +98,12 @@
                         <td>
                             @if ($user->id !== Auth::user()->id)
                                 <div class="btn-group">
-                                    <form method="post" action="{{ route('dashboard.users.edit', ['user' => $user]) }}">
-                                        @csrf
-                                        <button><i class="fa fa-pencil text-dark"></i></button>
-                                    </form>
-
-                                    <form method="post"
-                                          action="{{ route('dashboard.users.remove', ['user' => $user]) }}">
-                                        @csrf
-                                        <button><i class="fa fa-remove text-dark"></i></button>
-                                    </form>
+                                    <a type="button" class="p-1" data-toggle="modal" data-target="#modal" href="#"><i
+                                            class="fa fa-pencil text-dark"></i></a>
+                                    <a type="button" class="p-1"
+                                       href="{{ route('dashboard.users.remove', ['user' => $user]) }}"><i
+                                            class="fa fa-remove text-dark"></i></a>
                                 </div>
-                            @else
-                                <h5 class="pt-0"><span class="badge badge-primary">You</span></h5>
                             @endif
                         </td>
                     </tr>
