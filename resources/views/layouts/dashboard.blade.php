@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Dashboard
+@endsection
+
 @include('layouts.sidebar')
 
 @section('content')

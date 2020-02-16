@@ -16,7 +16,7 @@ class IsAdmin
     public function handle($request, Closure $next)
     {
         if ($request->user() && !$request->user()->is_admin) {
-            return response()->view('errors.401', ['message' => 'Only accessible to administrators.'], 401);
+            abort(401, 'Only for administrators.');
         }
 
         return $next($request);

@@ -15,7 +15,12 @@ Route::get('/', 'IndexController@index')->name('index');
 
 ## Dashboard routes.
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+
+## Settings routes.
 Route::get('/dashboard/settings', 'DashboardController@settings')->name('dashboard.settings');
+Route::post('/dashboard/settings', 'SettingsController@update')->name('dashboard.settings.update');
+
 Route::get('/dashboard/users', 'DashboardController@users')->name('dashboard.users');
 Route::get('/dashboard/posts', 'DashboardController@posts')->name('dashboard.posts');
 Route::get('/dashboard/tags', 'DashboardController@tags')->name('dashboard.tags');
