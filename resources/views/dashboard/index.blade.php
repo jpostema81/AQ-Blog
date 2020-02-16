@@ -49,6 +49,11 @@
                         <span class="badge stat-badge text-primary">{{ $post_count }}</span>
                         <span class="badge-text text-dark">Posts</span>
                     </a>
+
+                    <a type="statistic" href="{{ route('dashboard.tags') }}">
+                        <span class="badge stat-badge text-primary">{{ $tag_count }}</span>
+                        <span class="badge-text text-dark">Tags</span>
+                    </a>
                 </div>
             </div>
         </div>

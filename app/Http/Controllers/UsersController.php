@@ -6,7 +6,7 @@ use App\User;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function view()
     {
         return view('users', [
             'admins' => User::all()->where('is_admin', true),

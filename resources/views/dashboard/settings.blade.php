@@ -15,7 +15,7 @@
                 will cause an error 501 (Not Implemented Yet).
             </div>
 
-            <form class="form" method="post" action="{{ route('dashboard.settings.update') }}" accept-charset="UTF-8">
+            <form class="form" method="post" action="{{ route('dashboard.settings.edit') }}" accept-charset="UTF-8">
                 @csrf
 
                 <div class="form-group">

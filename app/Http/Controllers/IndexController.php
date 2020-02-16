@@ -7,7 +7,7 @@ use App\User;
 
 class IndexController extends Controller
 {
-    public function index()
+    public function view()
     {
         return view('index', [
             'users' => User::all(),

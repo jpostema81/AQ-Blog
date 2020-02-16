@@ -11,21 +11,33 @@
 |
 */
 
-Route::get('/', 'IndexController@index')->name('index');
+Route::get('/', 'IndexController@view')->name('index');
+Route::get('/users', 'UsersController@view')->name('users');
+Route::get('/posts', 'PostsController@view')->name('posts');
+Auth::routes();
 
 ## Dashboard routes.
-Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+Route::namespace('Dashboard')->group(function () {
+    ## Home
+    Route::get('/dashboard', 'IndexController@view')->name('dashboard');
 
+    ## Settings
+    Route::get('/dashboard/settings', 'SettingsController@view')->name('dashboard.settings');
+    Route::post('/dashboard/settings/edit', 'SettingsController@edit')->name('dashboard.settings.edit');
 
-## Settings routes.
-Route::get('/dashboard/settings', 'DashboardController@settings')->name('dashboard.settings');
-Route::post('/dashboard/settings', 'SettingsController@update')->name('dashboard.settings.update');
+    ## Users
+    Route::get('/dashboard/users', 'UsersController@view')->name('dashboard.users');
+    Route::get('/dashboard/users/{id}', 'UsersController@view_user')->name('dashboard.users.{id}');
+    Route::post('/dashboard/users/edit', 'UsersController@edit')->name('dashboard.users.edit');
+    Route::post('/dashboard/users/remove', 'UsersController@remove')->name('dashboard.users.remove');
 
-Route::get('/dashboard/users', 'DashboardController@users')->name('dashboard.users');
-Route::get('/dashboard/posts', 'DashboardController@posts')->name('dashboard.posts');
-Route::get('/dashboard/tags', 'DashboardController@tags')->name('dashboard.tags');
+    ## Posts
+    Route::get('/dashboard/posts', 'PostsController@view')->name('dashboard.posts');
+    Route::post('/dashboard/posts/edit', 'UsersController@edit')->name('dashboard.posts.edit');
+    Route::post('/dashboard/posts/remove', 'UsersController@remove')->name('dashboard.posts.remove');
 
-Route::get('/users', 'UsersController@index')->name('users');
-Route::get('/posts', 'PostsController@index')->name('posts');
-
-Auth::routes();
+    ## Tags
+    Route::get('/dashboard/tags', 'TagsController@view')->name('dashboard.tags');
+    Route::post('/dashboard/tags/edit', 'UsersController@edit')->name('dashboard.tags.edit');
+    Route::post('/dashboard/tags/remove', 'UsersController@remove')->name('dashboard.tags.remove');
+});
