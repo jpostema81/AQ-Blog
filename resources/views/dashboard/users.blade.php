@@ -27,7 +27,7 @@
                 </thead>
 
                 <tbody>
-                @forelse($users as $user)
+                @forelse($users as $u)
                     <div id="modal" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -41,25 +41,25 @@
                                 <div class="modal-body">
                                     <div class="container">
                                         <form class="form text-center" method="post"
-                                              action="{{ route('dashboard.users.edit', ['user' => $user]) }}">
+                                              action="{{ route('dashboard.users.edit', ['user' => $u]) }}">
                                             @csrf
 
                                             <div class="form-group">
                                                 <label for="id">ID:</label>
                                                 <input class="form-control" type="number" min="1"
-                                                       value="{{ $user->id }}"
+                                                       value="{{ $u->id }}"
                                                        disabled id="id" name="id">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="name">Name:</label>
-                                                <input class="form-control" type="text" value="{{ $user->name }}"
+                                                <input class="form-control" type="text" value="{{ $u->name }}"
                                                        id="name" name="name">
                                             </div>
 
                                             <div class="form-group">
                                                 <label for="email">Email:</label>
-                                                <input class="form-control" type="email" value="{{ $user->email }}"
+                                                <input class="form-control" type="email" value="{{ $u->email }}"
                                                        id="email" name="email">
                                             </div>
 
@@ -73,9 +73,9 @@
                                             <div class="form-group">
                                                 <label for="is_admin">Is Admin:</label>
                                                 <select class="form-control" id="is_admin" name="is_admin">
-                                                    <option value="1" {{ $user->is_admin ? 'selected' : '' }}>Yes
+                                                    <option value="1" {{ $u->is_admin ? 'selected' : '' }}>Yes
                                                     </option>
-                                                    <option value="0" {{ !$user->is_admin ? 'selected' : '' }}>No
+                                                    <option value="0" {{ !$u->is_admin ? 'selected' : '' }}>No
                                                     </option>
                                                 </select>
                                             </div>
@@ -92,16 +92,16 @@
                     </div>
 
                     <tr>
-                        <td>{{ $user->id }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ _($user->is_admin ? 'Yes' : 'No') }}</td>
+                        <td>{{ $u->id }}</td>
+                        <td>{{ $u->name }}</td>
+                        <td>{{ _($u->is_admin ? 'Yes' : 'No') }}</td>
                         <td>
-                            @if ($user->id !== Auth::user()->id)
+                            @if ($u->id !== Auth::user()->id)
                                 <div class="btn-group">
                                     <a type="button" class="p-1" data-toggle="modal" data-target="#modal" href="#"><i
                                             class="fa fa-pencil text-dark"></i></a>
                                     <a type="button" class="p-1"
-                                       href="{{ route('dashboard.users.remove', ['user' => $user]) }}"><i
+                                       href="{{ route('dashboard.users.remove', ['user' => $u]) }}"><i
                                             class="fa fa-remove text-dark"></i></a>
                                 </div>
                             @endif

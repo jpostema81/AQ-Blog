@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Posts
+@endsection
+
 @section('content')
     <div class="container">
         <h2>Posts</h2>
@@ -7,7 +11,7 @@
 
         @foreach($posts as $post)
             <div class="card" style="margin-top: 20px">
-                <div class="card-header text-center">
+                <div class="card-header text-center bg-dark text-white">
                     <h4>{{ ucwords(str_replace('-', ' ', $post->slug)) }}</h4>
                 </div>
 
