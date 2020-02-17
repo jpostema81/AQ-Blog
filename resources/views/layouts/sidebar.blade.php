@@ -1,4 +1,8 @@
 <style>
+    aside {
+        z-index: 999;
+    }
+
     aside li:hover,
     aside li:focus {
         background: rgba(0, 0, 0, 0.075);

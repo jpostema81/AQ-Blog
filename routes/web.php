@@ -13,13 +13,13 @@
 
 Route::get('/', 'IndexController@view')->name('index');
 Route::get('/users', 'UsersController@view')->name('users');
-Route::get('/users/{user}', 'UsersController@view_specific')->name('users.specific');
+//Route::get('/users/{user}', 'UsersController@view_specific')->name('users.specific');
 Route::get('/posts', 'PostsController@view')->name('posts');
-Route::get('/posts/{post}', 'PostsController@view_specific')->name('posts.specific');
+//Route::get('/posts/{post}', 'PostsController@view_specific')->name('posts.specific');
 Auth::routes();
 
 ## Dashboard routes.
-Route::namespace('Dashboard')->group(function () {
+Route::namespace('Dashboard')->group(static function () {
     ## Home
     Route::get('/dashboard', 'IndexController@view')->name('dashboard');
 
@@ -35,7 +35,7 @@ Route::namespace('Dashboard')->group(function () {
 
     ## Posts
     Route::get('/dashboard/posts', 'PostsController@view')->name('dashboard.posts');
-    Route::get('/dashboard/posts/{posts}', 'UsersController@view_specific')->name('dashboard.users.specific');
+    Route::get('/dashboard/posts/{post}', 'UsersController@view_specific')->name('dashboard.posts.specific');
     Route::post('/dashboard/posts/edit', 'UsersController@edit')->name('dashboard.posts.edit');
     Route::post('/dashboard/posts/remove', 'UsersController@remove')->name('dashboard.posts.remove');
 

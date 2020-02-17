@@ -7,7 +7,7 @@
 @include('layouts.sidebar')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-left: 15vw">
         @yield('dashboard-content')
     </div>
 @endsection
