@@ -12,4 +12,9 @@ class PostsController extends Controller
             'posts' => Post::all()
         ]);
     }
+
+    public function view_specific(Post $post)
+    {
+        return view('posts-specific', ['post' => $post]);
+    }
 }

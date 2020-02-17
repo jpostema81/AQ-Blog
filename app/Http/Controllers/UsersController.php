@@ -13,4 +13,9 @@ class UsersController extends Controller
             'users' => User::all()->where('is_admin', false)
         ]);
     }
+
+    public function view_specific(User $user)
+    {
+        return view('users-specific', ['user' => $user]);
+    }
 }
