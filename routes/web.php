@@ -15,7 +15,7 @@ Route::get('/', 'IndexController@view')->name('index');
 Route::get('/users', 'UsersController@view')->name('users');
 //Route::get('/users/{user}', 'UsersController@view_specific')->name('users.specific');
 Route::get('/posts', 'PostsController@view')->name('posts');
-//Route::get('/posts/{post}', 'PostsController@view_specific')->name('posts.specific');
+Route::get('/posts/{post}', 'PostsController@view_specific')->name('posts.specific');
 Auth::routes();
 
 ## Dashboard routes.

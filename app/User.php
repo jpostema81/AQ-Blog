@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'avatar', 'is_admin'
+        'name', 'email', 'password', 'avatar', 'is_admin', 'is_writer'
     ];
 
     /**
@@ -34,7 +34,8 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'is_admin' => 'boolean'
+        'is_admin' => 'boolean',
+        'is_writer' => 'boolean'
     ];
 
     public function posts()

@@ -10,6 +10,7 @@ class UsersController extends Controller
     {
         return view('users', [
             'admins' => User::all()->where('is_admin', true),
+            'writers' => User::all()->where('is_writer', true),
             'users' => User::all()->where('is_admin', false)
         ]);
     }
