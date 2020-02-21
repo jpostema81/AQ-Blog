@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Tag;
 use Illuminate\Http\Request;
 
 class TagsController extends DashboardController
 {
     public function view()
     {
-        return view('dashboard.tags', ['tags' => []]); // Replace with Tag::all().
+        return view('dashboard.tags', ['tags' => Tag::all()]); // Replace with Tag::all().
     }
 
     public function edit(Request $request)

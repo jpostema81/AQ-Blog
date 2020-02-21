@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Tag;
 use App\User;
 
 class IndexController extends Controller
@@ -17,7 +18,7 @@ class IndexController extends Controller
             })->take(10),
             'user_count' => User::all()->count(),
             'post_count' => Post::all()->count(),
-            'tag_count' => 0 // Replace with 'Tag::all()->count()'
+            'tag_count' => Tag::all()->count()
         ]);
     }
 }

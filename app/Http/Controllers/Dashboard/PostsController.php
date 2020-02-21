@@ -10,12 +10,6 @@ use Illuminate\Http\Request;
 
 class PostsController extends DashboardController
 {
-    public function __construct()
-    {
-        $this->middleware(IsAdmin::class, ['except' => ['view']]);
-        $this->middleware(IsWriter::class);
-    }
-
     public function view()
     {
         return view('dashboard.posts', ['posts' => Post::all()]);
