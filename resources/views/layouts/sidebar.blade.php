@@ -25,28 +25,20 @@
                                                                                  href="{{ route('dashboard') }}"><i
                     class="fa fa-star"></i> Home</a></li>
 
-        @if (Auth::user()->is_admin)
-            <li class="nav-item {{ Request::is('dashboard/settings') ? 'active' : '' }}"><a class="nav-link"
-                                                                                            href="{{ route('dashboard.settings') }}"><i
-                        class="fa fa-gear"></i> Settings</a></li>
-        @endif
+        <li class="nav-item {{ Request::is('dashboard/settings') ? 'active' : '' }}"><a class="nav-link"
+                                                                                        href="{{ route('dashboard.settings') }}"><i
+                    class="fa fa-gear"></i> Settings</a></li>
 
-        @if (Auth::user()->is_admin)
-            <li class="nav-item {{ Request::is('dashboard/users') ? 'active' : '' }}"><a class="nav-link"
-                                                                                         href="{{ route('dashboard.users') }}"><i
-                        class="fa fa-user"></i> Users</a></li>
-        @endif
+        <li class="nav-item {{ Request::is('dashboard/users') ? 'active' : '' }}"><a class="nav-link"
+                                                                                     href="{{ route('dashboard.users') }}"><i
+                    class="fa fa-user"></i> Users</a></li>
 
-        @if (Auth::user()->is_admin || Auth::user()->is_writer)
-            <li class="nav-item {{ Request::is('dashboard/posts') ? 'active' : '' }}"><a class="nav-link"
-                                                                                         href="{{ route('dashboard.posts') }}"><i
-                        class="fa fa-pencil"></i> Posts</a></li>
-        @endif
+        <li class="nav-item {{ Request::is('dashboard/posts') ? 'active' : '' }}"><a class="nav-link"
+                                                                                     href="{{ route('dashboard.posts') }}"><i
+                    class="fa fa-pencil"></i> Posts</a></li>
 
-        @if (Auth::user()->is_admin)
-            <li class="nav-item {{ Request::is('dashboard/tags') ? 'active' : '' }}"><a class="nav-link"
-                                                                                        href="{{ route('dashboard.tags') }}"><i
-                        class="fa fa-hashtag"></i> Tags</a></li>
-        @endif
+        <li class="nav-item {{ Request::is('dashboard/tags') ? 'active' : '' }}"><a class="nav-link"
+                                                                                    href="{{ route('dashboard.tags') }}"><i
+                    class="fa fa-hashtag"></i> Tags</a></li>
     </ul>
 </aside>

@@ -15,6 +15,11 @@ class PostsController extends DashboardController
         return view('dashboard.posts', ['posts' => Post::all()]);
     }
 
+    public function add(Request $request)
+    {
+        abort(501, 'Not Implemented Yet');
+    }
+
     public function edit(Request $request)
     {
         abort(501, 'Not Implemented Yet');

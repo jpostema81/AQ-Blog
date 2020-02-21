@@ -11,8 +11,17 @@
 
     <div class="card">
         <div class="card-header bg-dark text-white">
-            <i class="fa fa-pencil"></i>
-            <b>Posts</b>
+            <div class="pull-left">
+                <h5 class="pt-2"><i class="fa fa-pencil"></i> <b>Posts</b></h5>
+            </div>
+
+            <div class="pull-right">
+                <form method="post"
+                      action="{{ route('dashboard.posts.add') }}">
+                    @csrf
+                    <button class="btn btn-outline-light pull-right">Create</button>
+                </form>
+            </div>
         </div>
 
         <div class="card-body table-responsive">

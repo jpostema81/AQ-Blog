@@ -9,7 +9,12 @@ class TagsController extends DashboardController
 {
     public function view()
     {
-        return view('dashboard.tags', ['tags' => Tag::all()]); // Replace with Tag::all().
+        return view('dashboard.tags', ['tags' => Tag::all()]);
+    }
+
+    public function add(Request $request)
+    {
+        abort(501, 'Not Implemented Yet');
     }
 
     public function edit(Request $request)

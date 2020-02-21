@@ -16,6 +16,11 @@ class UsersController extends DashboardController
         abort(501, 'Not Implemented Yet');
     }
 
+    public function add()
+    {
+        abort(501, 'Not Implemented Yet');
+    }
+
     public function edit()
     {
         abort(501, 'Not Implemented Yet');
