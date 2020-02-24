@@ -6,6 +6,7 @@ use App\Http\Middleware\IsAdmin;
 use App\Http\Middleware\IsWriter;
 use App\Post;
 use App\Providers\RouteServiceProvider;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostsController extends DashboardController
@@ -17,7 +18,7 @@ class PostsController extends DashboardController
 
     public function add(Request $request)
     {
-        abort(501, 'Not Implemented Yet');
+        return view('dashboard.post-add', ['tags' => Tag::all()]);
     }
 
     public function edit(Request $request)
