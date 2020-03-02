@@ -16,11 +16,7 @@
             </div>
 
             <div class="pull-right">
-                <form method="post"
-                      action="{{ route('dashboard.posts.add') }}">
-                    @csrf
-                    <button class="btn btn-outline-light pull-right">Create</button>
-                </form>
+                <a class="btn btn-outline-light pull-right" href="{{ route('dashboard.posts.create') }}">Create</a>
             </div>
         </div>
 
@@ -30,6 +26,7 @@
                 <tr>
                     <th>ID</th>
                     <th>Slug</th>
+                    <th>Date</th>
                     <th>Author</th>
                     <th></th>
                 </tr>
@@ -40,18 +37,21 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ ucwords(str_replace('-',' ', $post->slug)) }}</td>
+                        <td>{{ $post->created_at }}</td>
                         <td><a href="#" class="text-dark">{{ $post->author->name }}</a></td>
                         <td>
                             <div class="btn-group">
                                 <form method="post"
-                                      action="{{ route('dashboard.posts.edit', ['post_id' => $post->id]) }}">
+                                      action="{{ route('dashboard.posts.edit') }}">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{ $post->id }}">
                                     <button><i class="fa fa-pencil text-dark"></i></button>
                                 </form>
 
                                 <form method="post"
-                                      action="{{ route('dashboard.posts.remove', ['post_id' => $post->id]) }}">
+                                      action="{{ route('dashboard.posts.destroy') }}">
                                     @csrf
+                                    <input type="hidden" name="id" value="{{ $post->id }}">
                                     <button><i class="fa fa-remove text-dark"></i></button>
                                 </form>
                             </div>

@@ -13,7 +13,7 @@
             </div>
 
             <div class="card-body">
-                <form class="form" method="post" action="{{ route('dashboard.posts.add') }}" accept-charset="UTF-8">
+                <form class="form" method="post" action="{{ route('dashboard.posts.store') }}" accept-charset="UTF-8">
                     @csrf
 
                     <div class="form-group">
@@ -27,13 +27,13 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="long_desc">Title</label>
+                        <label for="long_desc">Long Description</label>
                         <input name="long_desc" id="long_desc" class="form-control" required/>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group hide">
                         <label for="tags">Tags</label>
-                        <select name="tags" id="tags" class="form-control" multiple required>
+                        <select name="tags" id="tags" class="form-control" multiple>
                             @foreach($tags as $tag)
                                 <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                             @endforeach
