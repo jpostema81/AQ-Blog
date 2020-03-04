@@ -41,16 +41,17 @@
                         <td><a href="#" class="text-dark">{{ $post->author->name }}</a></td>
                         <td>
                             <div class="btn-group">
-                                <form method="post"
-                                      action="{{ route('dashboard.posts.edit') }}">
+                                <form method="POST"
+                                      action="{{ url("/dashboard/posts/{$post->id}/edit") }}">
                                     @csrf
                                     <input type="hidden" name="id" value="{{ $post->id }}">
                                     <button><i class="fa fa-pencil text-dark"></i></button>
                                 </form>
 
-                                <form method="post"
-                                      action="{{ route('dashboard.posts.destroy') }}">
+                                <form method="POST"
+                                      action="{{ url("/dashboard/posts/{$post->id}") }}">
                                     @csrf
+                                    @method('DELETE')
                                     <input type="hidden" name="id" value="{{ $post->id }}">
                                     <button><i class="fa fa-remove text-dark"></i></button>
                                 </form>

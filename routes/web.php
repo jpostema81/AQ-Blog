@@ -38,9 +38,12 @@ Route::namespace('Dashboard')->group(static function () {
     Route::get('/dashboard/posts', 'PostsController@index')->name('dashboard.posts');
     Route::get('/dashboard/posts/{id}', 'PostsController@show')->name('dashboard.posts.specific');
     Route::get('/dashboard/posts/create', 'PostsController@create')->name('dashboard.posts.create');
-    Route::post('/dashboard/posts/store', 'PostsController@store')->name('dashboard.posts.store');
-    Route::post('/dashboard/posts/edit', 'PostsController@edit')->name('dashboard.posts.edit');
-    Route::post('/dashboard/posts/destroy', 'PostsController@destroy')->name('dashboard.posts.destroy');
+    Route::post('/dashboard/posts/store', 'PostsController@store')->name('dashboard.posts.store');   
+    // default CRUD routes zie: https://laravel.com/docs/5.7/controllers#restful-partial-resource-routes
+    // Route::post('/dashboard/posts/edit', 'PostsController@edit')->name('dashboard.posts.edit');
+    Route::post('/dashboard/posts/{post}/edit', 'PostsController@edit')->name('dashboard.posts.edit');
+    // Route::post('/dashboard/posts/destroy', 'PostsController@destroy')->name('dashboard.posts.destroy');
+    Route::delete('/dashboard/posts/{post}', 'PostsController@destroy')->name('dashboard.posts.destroy');
 
     ## Tags - TODO: Rename to fit naming scheme.
     Route::get('/dashboard/tags', 'TagsController@view')->name('dashboard.tags');

@@ -68,9 +68,9 @@ class PostsController extends DashboardController
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, Post $post)
     {
-        //
+        dd($post);
     }
 
     /**
@@ -91,9 +91,10 @@ class PostsController extends DashboardController
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Post $post)
     {
-        Post::findOrFail($id) . delete();
+        dd($post);
+        //Post::findOrFail($id) . delete();
         return redirect(RouteServiceProvider::DASHBOARD . '/posts');
     }
 }
